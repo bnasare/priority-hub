@@ -1,9 +1,15 @@
 import React from "react";
+import { getAuth } from "firebase/auth";
+import app from "../firebase/config";
+
+const auth = getAuth(app);
 
 function Homepage() {
-    return <div className="flex flex-col items-center justify-center h-screen m-0 overflow-hidden">
-        <input type="text" placeholder="Enter your name" className="w-1/4 border border-black" />
-    </div>;
+    return (
+        <div>
+            <p>Hello, {auth.currentUser.displayName}</p>
+        </div>
+    );
 }
 
 export default Homepage;
