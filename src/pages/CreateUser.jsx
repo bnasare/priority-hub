@@ -3,6 +3,8 @@ import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import { getAuth, signInAnonymously, updateProfile } from "firebase/auth";
 import app from "../firebase/config";
 import { useNavigate } from "react-router-dom";
+import InputComponent from "../components/Input";
+import ButtonComponent from "../components/Button";
 
 const db = getFirestore(app);
 const auth = getAuth(app);
@@ -32,10 +34,11 @@ function CreateUser() {
 
     return (
         <div className="flex flex-col items-center justify-center h-screen m-0 overflow-hidden">
-            <input type="text" placeholder="Enter name" className="w-1/4 border border-black" />
-            <button onClick={addToDatabase} className="w-1/4 border border-black">Enter</button>
+            <InputComponent />
+            <ButtonComponent onClick={addToDatabase} />
         </div>
     );
+
 }
 
 export default CreateUser;
